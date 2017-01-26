@@ -3,10 +3,10 @@ title: "Lin's first ever Rmarkdown file"
 output: html_document
 ---
 
-## Intro to Coding (open data science)
+## Introduction to Open Data Science
 
 #### About the course
-I honestly don't know what this course is, but it feels like some kind of coding course that will inspire some in the classroom to create their own cool app and freak out those that don't even know how to complete the first excercise LOL~ lets have fun and help out each other.
+I honestly don't know what this course is, but it feels like some kind of coding course that will inspire some in the classroom to create their own cool app and freak out those that don't even know how to complete the first exercise LOL~ lets have fun and help out each other.
 
 #### The link to Lin's course diary
 <https://tzsu.github.io/IODS-project/>
