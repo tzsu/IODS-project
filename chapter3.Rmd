@@ -105,7 +105,7 @@ alc <- read.table("D:/Sydney Uni/forth semester units of study/Intro to Open Dat
 - **alc_use** is the average of **Dalc** and **Walc**
 - **high_use** is **TRUE** if alc_use is higher than 2 and FALSE otherwise.
 #### Some variables are numerical and some are not.
-```{r, echo=TRUE}
+```{r, echo=FALSE}
 glimpse(alc)
 ```
 
@@ -138,7 +138,7 @@ g2 +geom_boxplot() + ggtitle("Student absences by alcohol consumption and sex")
 ```
 
 #### Graph 2 seems to support my assumption that students who were absence from school more times will drink more.
-```{r}
+```{r, echo=FALSE}
 #initialise a plot of high_use and freetime
 g4 <- ggplot(alc, aes(freetime)) + geom_bar(aes(fill = high_use), position = "dodge", stat="count") 
 #define the plot as a barplot and draw it
@@ -146,7 +146,7 @@ g4  + ggtitle("Student freetime by alcohol consumption")
 ```
 
 #### Graph 3 (although this graph may be hard to read), seems to support my hypothesis. There is a higher percentage of high_use when there is more freetime.
-```{r}
+```{r, echo=FALSE}
 #initialise a plot of high_use and romantic
 g5 <- ggplot(alc, aes(romantic)) + geom_bar(aes(fill = high_use), position = "dodge", stat="count") 
 #define the plot as a barplot and draw it
@@ -158,14 +158,14 @@ g5  + ggtitle("Student romantic by alcohol consumption")
 ### 3. Logistic regression
 #### In order to predict alcohol consumption with my chosen variables, we have to make sure all variables are highly related to alcohol consuption. The model summary shows that my first and forth hypothesis are wrong. Final grades nor being in a relationship have statistical significances on alcohol consumption. We cannot use them to do predictions.
 
-```{r, echo=TRUE}
+```{r, echo=FALSE}
 # find the model with glm()
 m <- glm(high_use ~ G3 + absences + freetime + romantic, data = alc, family = "binomial")
 # print out a summary of the model
 summary(m)
 ```
 
-```{r}
+```{r, echo=FALSE}
 # compute odds ratios (OR)
 OR <- coef(m) %>%exp
 #compute confidence intervals(CI)
@@ -175,7 +175,7 @@ CI <- exp(confint(m))
 
 #### Now I take out the variables grade and romantic, and fit the model again
 
-```{r}
+```{r, echo=FALSE}
 # find the new model with glm()
 m <- glm(high_use ~ absences + freetime, data = alc, family = "binomial")
 # print out a summary of the model
@@ -184,7 +184,7 @@ summary(m)
 
 ### 4. Predictions
 
-```{r, echo=TRUE}
+```{r, echo=FALSE}
 # predict() the probability of high_use
 probabilities <- predict(m, type = "response")
 # add the predicted probabilities to 'alc'

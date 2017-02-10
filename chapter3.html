@@ -141,7 +141,6 @@ $(document).ready(function () {
 <li><strong>alc_use</strong> is the average of <strong>Dalc</strong> and <strong>Walc</strong></li>
 <li><strong>high_use</strong> is <strong>TRUE</strong> if alc_use is higher than 2 and FALSE otherwise. #### Some variables are numerical and some are not.</li>
 </ul>
-<pre class="r"><code>glimpse(alc)</code></pre>
 <pre><code>## Observations: 382
 ## Variables: 35
 ## $ school     &lt;fctr&gt; GP, GP, GP, GP, GP, GP, GP, GP, GP, GP, GP, GP, GP...
@@ -267,10 +266,6 @@ CI &lt;- exp(confint(m))</code></pre>
 </div>
 <div id="now-i-take-out-the-variables-grade-and-romantic-and-fit-the-model-again" class="section level4">
 <h4>Now I take out the variables grade and romantic, and fit the model again</h4>
-<pre class="r"><code># find the new model with glm()
-m &lt;- glm(high_use ~ absences + freetime, data = alc, family = &quot;binomial&quot;)
-# print out a summary of the model
-summary(m)</code></pre>
 <pre><code>## 
 ## Call:
 ## glm(formula = high_use ~ absences + freetime, family = &quot;binomial&quot;, 
