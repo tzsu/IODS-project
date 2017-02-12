@@ -204,7 +204,7 @@ g + geom_point()
 table(high_use = alc$high_use, prediction = alc$prediction)%>% prop.table()%>% addmargins
 ```
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 # define a loss function (mean prediction error)
 loss_func <- function(class, prob) {
   n_wrong <- abs(class - prob) > 0.5
