@@ -1,4 +1,4 @@
-# Logistic Regression (week3)
+# Logistic Regression (week 3)
 
 *This week we did data wrangling on two new data sets retrieved from the UCI Machine Learning Repository. The data are from two identical questionaires related to secondary school student alcohol comsumption in Portugal.*
 *We then perform analysis on the combined dataset*

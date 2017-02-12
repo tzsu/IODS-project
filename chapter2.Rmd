@@ -1,4 +1,4 @@
-# Regression and Model Validation (week2)
+# Regression and Model Validation (week 2)
 
 *This week we first learn how to do data wrangling to get the relevant dataset so we can further analyse the learning2014 survey. We then learn how to read the summary of the multiple regression model and conduct analysis on the model validity.*
 
