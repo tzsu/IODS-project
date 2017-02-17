@@ -143,7 +143,7 @@ lda.arrows(lda.fit, myscale = 3)
 
 ### 5. Predicting 
 #### The results show that the classifier predict the crime rates quite correctly.
-```{r}
+```{r, echo=TRUE}
 # predict classes with test data
 lda.pred <- predict(lda.fit, newdata = test)
 
