@@ -8,7 +8,7 @@ output:
     toc_depth: 2
     fig_caption: true
     fig_width: 8
-    fig_height: 7
+    fig_height: 9
     code_folding: show
 ---
 
@@ -25,4 +25,9 @@ output:
 ***
 
 ```{r child = "chapter3.Rmd", echo=TRUE}
+```
+
+***
+
+```{r child = "chapter4.Rmd", echo=TRUE}
 ```
