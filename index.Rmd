@@ -3,9 +3,9 @@ title: "IODS course project"
 author: "Tzu-lin Su (Lin)"
 output:
   html_document:
-    theme: paper
+    theme: lumen
     toc: true
-    toc_depth: 2
+    toc_depth: 3
     fig_caption: true
     fig_width: 8
     fig_height: 9
