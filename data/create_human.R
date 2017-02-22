@@ -46,4 +46,30 @@ human <- inner_join(hd, gii, by= 'country')
 write.table(human, file="human.csv", sep= "\t", col.names = TRUE)
 
 #the joined "human" table has 195 obs. and 19 variables. 
-#end of data wrangling part
+
+#Continue with data wrangling, excercise 5
+
+#access package
+library(stringr)
+
+#mutate the data: transform the Gross National Income variable numeric
+str_replace(human$gni.cap, pattern=",", replace ="") %>%as.numeric
+#exclude unneeded variables
+human <- select(human, one_of('country', 'ratioedu2.fm', 'ratiolab.fm', 'exp.y.edu', 'life.exp','gni.cap', 'mmr', 'ad.b.r', 'par%'  ))
+
+#remove all rows with missing values
+human <- na.omit(human)
+#Remove the observations which relate to regions instead of countries
+last <- nrow(human) - 7
+human <- human[1:last,]
+
+#Define the row names of the data by the country names and remove the country name column from the data.
+rownames(human_) <- human$country
+human<- select(human, -country)
+
+#overwrite
+write.table(human, file = "human.csv", sep= "\t", col.names = TRUE)
+
+#end of data wrangling
+
+
