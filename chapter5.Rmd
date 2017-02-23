@@ -1,0 +1,56 @@
+# Dimensionality reduction techniques (week 5)
+
+*This week we first continue with human data wrangling from last week, and then analysize the data using dimensionality reduction techniques.*
+
+
+## 1. Data wrangling continuing from last week
+*you can see it in my github:*
+<https://github.com/tzsu/IODS-project/blob/master/data/create_human.R>
+
+## 2. Analysis 
+
+### 1. About the Human data: 
+*The Human data includes two data sets: "Human development" and "Gender inequality". We keep only the countries in both data sets, and exclude rows with missing values . After combining some variables and excluding some, the **Human** data we will use for performing analysis has 155 observations and the folowing 8 variables:*
+
+####the 8 variables:
+- ratioedu2.fm = Share of female population with secondary education over(/) share of male population with secondary education
+- ratiolab.fm = Share of female population that participates in labour force over(/) share of male population that participates in labour force
+- exp.y.edu = Expected years of schooling
+- life.exp = Life expectancy at birth
+- gni.cap = Gross national income per capita
+- mmr = Maternal mortality ratio
+- ad.b.r = Adolescent birth rate
+- par% = population with at least some secondary education
+
+
+```{r, echo=TRUE}
+#set wokring directory and load the human data into R
+
+setwd("D:/Sydney Uni/forth semester units of study/Intro to Open Data Science/IODS-project")
+
+human <- as.data.frame(read.table('data/human.csv', sep="\t", header = TRUE))
+```
+
+```{r, echo=TRUE}
+#explore the structure and dimentions of the data
+str(human)
+```
+
+### 2. Graphical overview and interpretation
+
+#### From the graph below we can see that...
+
+```{r, include=FALSE}
+#access package
+library(dplyr)
+library(ggplot2)
+library(GGally)
+```
+
+```{r, echo=TRUE}
+ggpairs(human)
+summary(human)
+```
+
+
+

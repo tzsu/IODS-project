@@ -72,4 +72,6 @@ write.table(human, file = "human.csv", sep= "\t", col.names = TRUE)
 
 #end of data wrangling
 
-
+str(human)
+dim(human)
+summary(human)
