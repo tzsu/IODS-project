@@ -38,13 +38,17 @@ str(human)
 
 ### 2. Graphical overview and interpretation
 
-#### From the graph below we can see that...
+#### From the graph below we can see that "gni.cap", "mmr", and "ad.b.r" are right skewed, whereas, "exp.y.edu" is close to normal distribution. "exp.y.edu"(expected year of education) and "life.exp"(life expectancy at birth) seems to be correlated.
 
 ```{r, include=FALSE}
 #access package
 library(dplyr)
 library(ggplot2)
 library(GGally)
+# access packages FactoMineR and tidyr
+library(FactoMineR)
+library(tidyr)
+library(corrplot)
 ```
 
 ```{r, echo=TRUE}
@@ -52,5 +56,52 @@ ggpairs(human)
 summary(human)
 ```
 
+### 3. PCA (principal component analysis) 
 
+#### **Not standardized**: The biplot displays the observations by the first two principal components, along with arrows representing the original variables.
 
+```{r}
+#perform pca
+pca_human <- prcomp(human)
+#show summary of the non-standardized variables
+summary(pca_human)
+#draw a biplot of the principal component
+```
+
+#### **Standardized**: The means of every variables will become 0. I don't really understand this part...
+
+```{r, echo=TRUE}
+# standardize human data
+human_std <- scale(human)
+
+# print out summaries of the standardized variables
+summary(human_std)
+
+# perform principal component analysis (with the SVD method)
+pca_human <- prcomp(human_std)
+
+# draw a biplot of the principal component representation and the original variables
+biplot(pca_human, choices = 1:2, cex = c(0.8, 1), col = c("grey40", "deeppink2"))
+```
+
+## 4. It's tea time
+
+```{r, echo=TRUE}
+
+#load tea data to R and glimpse it
+data("tea")
+glimpse(tea)
+
+# column names to keep in the dataset
+keep_columns <- c("Tea", "How", "how", "sugar", "where", "lunch")
+
+# select the 'keep_columns' to create a new dataset
+tea_time <- select(tea, one_of(keep_columns))
+
+# look at the summaries and structure of the data
+summary(tea_time)
+str(tea_time)
+
+# visualize the dataset
+gather(tea_time) %>% ggplot(aes(value)) + facet_wrap("key", scales = "free") + geom_bar() + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))
+```
