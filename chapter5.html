@@ -280,7 +280,7 @@ glimpse(tea)</code></pre>
 keep_columns &lt;- c(&quot;Tea&quot;, &quot;How&quot;, &quot;how&quot;, &quot;sugar&quot;, &quot;where&quot;, &quot;lunch&quot;)
 
 # select the 'keep_columns' to create a new dataset
-tea_time &lt;- select(tea, one_of(keep_columns))
+tea_time &lt;- dplyr::select(tea, one_of(keep_columns))
 
 # look at the summaries and structure of the data
 summary(tea_time)</code></pre>
